@@ -1,0 +1,22 @@
+import { RouterModule, Routes } from '@angular/router';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { ShowDetailsComponent } from './show-details/show-details.component';
+import { HomeComponent } from './home/home.component';
+
+
+  
+export const appRoutes: Routes = [
+    {path: '',component: EmployeeListComponent},
+    {
+        path: 'add-employee',
+        loadComponent: () => import('./add-employee/add-employee.component').then(m => m.AddEmployeeComponent)
+      },
+  //  {path:'', redirectTo: "home", pathMatch:"full"},
+    {path:'updating-by-id/:id',component:UpdateEmployeeComponent},
+    {path:'details-of-employee/:id',component:ShowDetailsComponent},
+    {path:'home',component:HomeComponent}
+  ];
+
+export class AppRoutingModule { }
