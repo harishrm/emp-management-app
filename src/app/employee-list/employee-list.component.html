@@ -5,12 +5,17 @@
 <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
 
 
-        <form (ngSubmit)="goToEmployee()" class="w-50">
-            <div class="form-group col-md-6 inline ">
-                <input [(ngModel)]="EnteredName" type="text" class="form-control" id="name" name="name" placeholder="Search by First or Last Name">
-                <button class="btn btn-secondary " type="submit">Search</button>
-            </div>
-        </form>
+    <div class="form-group col-md-6 inline">
+        <input
+          [(ngModel)]="EnteredName"
+          (ngModelChange)="filterEmployees()"
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Search by First or Last Name"
+        >
+      </div>
 
     <br>
     <br>

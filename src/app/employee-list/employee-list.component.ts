@@ -40,43 +40,49 @@ export class EmployeeListComponent {
     // this.getEmployees();
   }
 
-
-
-  goToEmployee(){
-
-    const searchValue = this.EnteredName.toLowerCase().trim();
+  filterEmployees() {
+    const searchValue = this.EnteredName?.toLowerCase().trim();
     if (searchValue) {
       this.filteredEmployees = this.employees.filter(emp =>
-        emp.fname.toLowerCase().includes(searchValue) || 
+        emp.fname.toLowerCase().includes(searchValue) ||
         emp.lname.toLowerCase().includes(searchValue)
       );
     } else {
       this.filteredEmployees = [];
     }
-  // const name = this.EnteredName.trim().toLowerCase();
-  // const emp = this.employees.find(e =>
-  //   e.fname.toLowerCase().includes(name)  || e.lname.toLowerCase().includes(name)
-  // );
-
-  // if (emp) {
-  //   this.router.navigate(['details-of-employee', emp.id], { state: { employee: emp } });
-  // } else {
-  //   alert('Employee not found!');
-  // }
- 
   }
+
+  // goToEmployee(){
+
+  //   const searchValue = this.EnteredName.toLowerCase().trim();
+  //   if (searchValue) {
+  //     this.filteredEmployees = this.employees.filter(emp =>
+  //       emp.fname.toLowerCase().includes(searchValue) || 
+  //       emp.lname.toLowerCase().includes(searchValue)
+  //     );
+  //   } else {
+  //     this.filteredEmployees = [];
+  //   }
+  // // const name = this.EnteredName.trim().toLowerCase();
+  // // const emp = this.employees.find(e =>
+  // //   e.fname.toLowerCase().includes(name)  || e.lname.toLowerCase().includes(name)
+  // // );
+
+  // // if (emp) {
+  // //   this.router.navigate(['details-of-employee', emp.id], { state: { employee: emp } });
+  // // } else {
+  // //   alert('Employee not found!');
+  // // }
+ 
+  // }
 
   getEmployees(){
     this.employeeService.getEmployeesList().subscribe(data => {this.employees = data;});
-
-    
   }
 
   updateEmployee(id: number){
     this.router.navigate(['updating-by-id', id]);
   }
-
-
 
 
   deleteEmployee(id: number){
