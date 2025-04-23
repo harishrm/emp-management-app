@@ -25,18 +25,9 @@ export class ShowDetailsComponent {
     this.id=0
   }
 
-  // ngOnInit(): void {
-  //   this.id = this.route.snapshot.params['id'];
-
-  //   this.employee = new Employee();
-  //   this.employeService.getEmployeeById(this.id).subscribe( data => {
-  //     this.employee = data;
-  //   });
-  // }
 
   ngOnInit(): void {
-
-    // const nav = this.router.getCurrentNavigation();
+;
     const state = window.history.state as { employee?: Employee };
     if (state && state.employee) {
       this.employee = state.employee;

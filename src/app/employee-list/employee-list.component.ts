@@ -40,21 +40,7 @@ export class EmployeeListComponent {
     // this.getEmployees();
   }
 
-  searchEmployees() {
-    const name = this.EnteredName.trim().toLowerCase();
-  
-    this.filteredEmployees = this.employees.filter(e =>
-      e.fname.toLowerCase().includes(name) || e.lname.toLowerCase().includes(name)
-    );
-  
-    if (this.filteredEmployees.length === 0) {
-      alert('No matching employees found!');
-    }
-  }
 
-  viewDetails(emp: Employee) {
-    this.router.navigate(['details-of-employee', emp.id], { state: { employee: emp } });
-  }
 
   goToEmployee(){
 
